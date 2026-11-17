@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,40 +23,40 @@
     </header>
 
 
-<!-- Order Confirmation -->
-<section class="confirmation" id="confirmation" hidden>
+    <!-- Order Confirmation -->
+    <section class="confirmation" id="confirmation" hidden>
 
-    <div class="success-icon">✓</div>
+        <div class="success-icon">✓</div>
 
-    <h2>Order Confirmed!</h2>
+        <h2>Order Confirmed!</h2>
 
-    <p>Your order has been received successfully.</p>
+        <p>Your order has been received successfully.</p>
 
-    <div class="order-info">
+        <div class="order-info">
 
-        <p>Order ID:</p>
-        <h3 id="confirmed-order-id">CX62D1117483</h3>
+            <p>Order ID:</p>
+            <h3 id="confirmed-order-id">CX62D1117483</h3>
 
-        <hr>
+            <hr>
 
-        <p>Customer: <strong id="confirmed-name"></strong></p>
-        <p>Mobile: <strong id="confirmed-mobile"></strong></p>
-        <p>Hall: <strong id="confirmed-hall"></strong></p>
-        <p>Quantity: <strong id="confirmed-quantity"></strong></p>
+            <p>Customer: <strong id="confirmed-name"></strong></p>
+            <p>Mobile: <strong id="confirmed-mobile"></strong></p>
+            <p>Hall: <strong id="confirmed-hall"></strong></p>
+            <p>Quantity: <strong id="confirmed-quantity"></strong></p>
 
-        <hr>
+            <hr>
 
-        <h3>Total: ৳<span id="confirmed-total"></span></h3>
+            <h3>Total: ৳<span id="confirmed-total"></span></h3>
 
-        <p>Payment: Cash on Delivery</p>
+            <p>Payment: Cash on Delivery</p>
 
-    </div>
+        </div>
 
-    <button type="button" id="new-order">
-        Back to Store
-    </button>
+        <button type="button" id="new-order">
+            Back to Store
+        </button>
 
-</section>
+    </section>
 
 
     <!-- Main Product Section -->
@@ -63,9 +64,12 @@
 
         <section class="product">
 
+            <!-- Product Image -->
             <div class="product-image">
-                <span>🕊️</span>
-                <p>Product Image</p>
+                <img
+                    src="assets/pigeon.jpg"
+                    alt="BAU Special Pigeon"
+                >
             </div>
 
             <div class="product-details">
@@ -91,11 +95,13 @@
 
                 <!-- Quantity Selector -->
                 <div class="quantity">
+
                     <button type="button" id="decrease">−</button>
 
                     <span id="quantity">1</span>
 
                     <button type="button" id="increase">+</button>
+
                 </div>
 
                 <!-- Total Price -->
@@ -107,6 +113,7 @@
 
         </section>
 
+
         <!-- Order Form -->
         <section class="checkout">
 
@@ -115,6 +122,7 @@
             <form id="order-form">
 
                 <label for="customer-name">Full Name</label>
+
                 <input
                     type="text"
                     id="customer-name"
@@ -122,7 +130,9 @@
                     required
                 >
 
+
                 <label for="mobile">Mobile Number</label>
+
                 <input
                     type="tel"
                     id="mobile"
@@ -130,13 +140,78 @@
                     required
                 >
 
+
                 <label for="hall">Select Hall</label>
+
                 <select id="hall" required>
+
                     <option value="">Choose your hall</option>
-                    <option value="Demo Hall 1">Demo Hall 1</option>
-                    <option value="Demo Hall 2">Demo Hall 2</option>
-                    <option value="Demo Hall 3">Demo Hall 3</option>
+
+                    <optgroup label="Boys' Halls">
+
+                        <option value="Isha Khan Hall">Isha Khan Hall</option>
+
+                        <option value="Shahjalal Hall">Shahjalal Hall</option>
+
+                        <option value="Shaheed Shamsul Haque Hall">
+                            Shaheed Shamsul Haque Hall
+                        </option>
+
+                        <option value="Hossain Shaheed Suhrawardy Hall">
+                            Hossain Shaheed Suhrawardy Hall
+                        </option>
+
+                        <option value="Fazlul Haque Hall">
+                            Fazlul Haque Hall
+                        </option>
+
+                        <option value="Shaheed Nazmul Ahsan Hall">
+                            Shaheed Nazmul Ahsan Hall
+                        </option>
+
+                        <option value="Ashraful Haque Hall">
+                            Ashraful Haque Hall
+                        </option>
+
+                        <option value="Mawlana Bhashani Hall">
+                            Mawlana Bhashani Hall
+                        </option>
+
+                        <option value="Shahid Jamal Hossain Hall">
+                            Shahid Jamal Hossain Hall
+                        </option>
+
+                    </optgroup>
+
+
+                    <optgroup label="Girls' Halls">
+
+                        <option value="Sultana Razia Hall">
+                            Sultana Razia Hall
+                        </option>
+
+                        <option value="Taposhi Rabeya Hall">
+                            Taposhi Rabeya Hall
+                        </option>
+
+                        <option value="July 36 Hall">July 36 Hall</option>
+
+                        <option value="Begum Rokeya Hall">
+                            Begum Rokeya Hall
+                        </option>
+
+                        <option value="Krishikanna Hall">
+                            Krishikanna Hall
+                        </option>
+
+                        <option value="Begum Khaleda Zia Hall">
+                            Begum Khaleda Zia Hall
+                        </option>
+
+                    </optgroup>
+
                 </select>
+
 
                 <button type="submit" id="order-button">
                     Place Order — Cash on Delivery
@@ -148,12 +223,18 @@
 
     </main>
 
+
     <footer>
+
         <p>© 2026 Shop Update | BAU</p>
+
         <p>Made with 🕊️</p>
+
     </footer>
+
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

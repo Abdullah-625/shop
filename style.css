@@ -1,5 +1,8 @@
 
-/* General Reset */
+/* =================================
+   1. GENERAL RESET & BASE STYLES
+================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +16,11 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
+
+/* =================================
+   2. WEBSITE HEADER
+================================= */
+
 header {
     background: #176b45;
     color: white;
@@ -26,22 +33,33 @@ header h1 {
     margin-bottom: 5px;
 }
 
-/* Main Layout */
+
+/* =================================
+   3. MAIN LAYOUT
+================================= */
+
 main {
     width: 90%;
     max-width: 850px;
     margin: 30px auto;
 }
 
-/* Product Card */
+
+/* =================================
+   4. PRODUCT SECTION
+================================= */
+
 .product {
     display: flex;
     gap: 25px;
     background: white;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
+
+
+/* Product Image */
 
 .product-image {
     flex: 1;
@@ -49,15 +67,21 @@ main {
     background: #e8f3ed;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #176b45;
+    overflow: hidden;
 }
 
-.product-image span {
-    font-size: 75px;
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
 }
+
+
+/* Product Details */
 
 .product-details {
     flex: 1;
@@ -72,6 +96,9 @@ main {
     margin-bottom: 15px;
 }
 
+
+/* Product Price */
+
 .price {
     color: #176b45;
     font-size: 27px;
@@ -83,12 +110,19 @@ main {
     color: #777;
 }
 
+
+/* Stock Status */
+
 #stock-status {
     color: #16834c;
     font-weight: bold;
 }
 
-/* Quantity */
+
+/* =================================
+   5. QUANTITY SELECTOR
+================================= */
+
 .quantity {
     display: flex;
     align-items: center;
@@ -105,6 +139,7 @@ main {
     color: white;
     font-size: 20px;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 .quantity span {
@@ -112,24 +147,34 @@ main {
     font-weight: bold;
 }
 
-/* Checkout */
+
+/* =================================
+   6. CHECKOUT SECTION
+================================= */
+
 .checkout {
     background: white;
     margin-top: 25px;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
 
 .checkout h2 {
     margin-bottom: 18px;
 }
 
+
+/* Form Labels */
+
 .checkout label {
     display: block;
     margin: 12px 0 5px;
     font-weight: bold;
 }
+
+
+/* Form Inputs */
 
 .checkout input,
 .checkout select {
@@ -138,7 +183,18 @@ main {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 15px;
+    background: white;
 }
+
+.checkout input:focus,
+.checkout select:focus {
+    outline: none;
+    border-color: #176b45;
+    box-shadow: 0 0 0 2px rgba(23, 107, 69, 0.12);
+}
+
+
+/* Order Button */
 
 #order-button {
     width: 100%;
@@ -150,38 +206,13 @@ main {
     border-radius: 7px;
     font-size: 16px;
     cursor: pointer;
-}
-
-#order-button:hover,
-.quantity button:hover {
-    background: #105235;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #777;
-    font-size: 14px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-    .product {
-        flex-direction: column;
-    }
-
-    .product-image {
-        min-height: 180px;
-    }
-
-    header h1 {
-        font-size: 25px;
-    }
+    transition: background 0.2s;
 }
 
 
-/* Order Confirmation Screen */
+/* =================================
+   7. ORDER CONFIRMATION
+================================= */
 
 .confirmation {
     background: white;
@@ -190,8 +221,11 @@ footer {
     padding: 30px 25px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
+
+
+/* Success Icon */
 
 .success-icon {
     width: 65px;
@@ -206,10 +240,16 @@ footer {
     margin: 0 auto 15px;
 }
 
+
+/* Confirmation Heading */
+
 .confirmation h2 {
     color: #176b45;
     margin-bottom: 8px;
 }
+
+
+/* Order Information */
 
 .order-info {
     background: #f4f6f8;
@@ -231,6 +271,9 @@ footer {
     margin: 15px 0;
 }
 
+
+/* Back to Store Button */
+
 #new-order {
     width: 100%;
     padding: 13px;
@@ -242,3 +285,72 @@ footer {
     cursor: pointer;
 }
 
+
+/* =================================
+   8. BUTTON HOVER & DISABLED STATES
+================================= */
+
+#order-button:hover,
+#new-order:hover,
+.quantity button:hover {
+    background: #105235;
+}
+
+button:disabled {
+    background: #a5b5ac;
+    cursor: not-allowed;
+}
+
+
+/* =================================
+   9. WEBSITE FOOTER
+================================= */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* =================================
+   10. MOBILE RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 600px) {
+
+    main {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .product {
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .product-image {
+        min-height: 180px;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .checkout {
+        padding: 20px;
+    }
+
+    .confirmation {
+        width: 92%;
+        margin: 20px auto;
+        padding: 25px 18px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+}
