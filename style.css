@@ -179,3 +179,66 @@ footer {
         font-size: 25px;
     }
 }
+
+
+/* Order Confirmation Screen */
+
+.confirmation {
+    background: white;
+    max-width: 550px;
+    margin: 30px auto;
+    padding: 30px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.success-icon {
+    width: 65px;
+    height: 65px;
+    background: #e3f5e9;
+    color: #16834c;
+    font-size: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.confirmation h2 {
+    color: #176b45;
+    margin-bottom: 8px;
+}
+
+.order-info {
+    background: #f4f6f8;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.order-info h3 {
+    color: #176b45;
+    text-align: center;
+    margin: 8px 0;
+}
+
+.order-info hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+#new-order {
+    width: 100%;
+    padding: 13px;
+    background: #176b45;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
