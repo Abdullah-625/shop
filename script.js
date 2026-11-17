@@ -50,3 +50,59 @@ decreaseButton.addEventListener("click", function () {
 
 // Initial Display
 updateDisplay();
+
+
+// Order Form Validation
+
+const orderForm = document.getElementById("order-form");
+
+orderForm.addEventListener("submit", function (event) {
+
+    // Prevent page reload
+    event.preventDefault();
+
+    // Get customer information
+    const customerName = document.getElementById("customer-name").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const hall = document.getElementById("hall").value;
+
+    // Validate name
+    if (customerName.length < 2) {
+        alert("Please enter your full name.");
+        return;
+    }
+
+    // Validate Bangladesh mobile number
+    const mobilePattern = /^01[3-9]\d{8}$/;
+
+    if (!mobilePattern.test(mobile)) {
+        alert("Please enter a valid Bangladeshi mobile number.");
+        return;
+    }
+
+    // Validate hall
+    if (hall === "") {
+        alert("Please select your hall.");
+        return;
+    }
+
+    // Validate stock
+    if (quantity < 1 || quantity > availableStock) {
+        alert("Sorry! Requested quantity is not available.");
+        return;
+    }
+
+    // Calculate total
+    const totalPrice = quantity * unitPrice;
+
+    // Demo confirmation
+    alert(
+        "Order information is valid!\n\n" +
+        "Name: " + customerName + "\n" +
+        "Mobile: " + mobile + "\n" +
+        "Hall: " + hall + "\n" +
+        "Quantity: " + quantity + "\n" +
+        "Total: ৳" + totalPrice
+    );
+
+});
