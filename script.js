@@ -3,10 +3,35 @@
    1. STORE INFORMATION
 ================================= */
 
-const unitPrice = 250;
-let availableStock = 20;
+const unitPrice = 0;
+let availableStock = 0;
 let quantity = 1;
 
+async function loadProductInfo() {
+  const apiURL = "https://script.google.com/macros/s/AKfycbzDd2WVaNUF42tnP5US_KvBG3TZF4pIWa9ncwRfbtrXRXhplHqsFRhTkD8BZqk219Y/exec?action=getProduct";
+
+  try {
+    const response = await fetch(apiURL);
+    const product = await response.json();
+
+    if (!product.success || product.status !== "ACTIVE") {
+      throw new Error("Product is unavailable");
+    }
+
+    unitPrice = Number(product.price);
+    availableStock = Number(product.stock);
+
+    document.getElementById("unit-price").textContent = unitPrice;
+
+    updateDisplay();
+
+    console.log("Product loaded:", product);
+
+  } catch (error) {
+    console.error("Backend Error:", error);
+    alert("Unable to load product information. Please try again.");
+  }
+}
 
 /* =================================
    2. HTML ELEMENTS
@@ -246,3 +271,5 @@ document.getElementById("new-order").addEventListener("click", function () {
     });
 
 });
+
+loadProductInfo();
