@@ -6,6 +6,7 @@
 let unitPrice = 0;
 let availableStock = 0;
 let quantity = 1;
+let productLoaded = false;
 
 async function loadProductInfo() {
   const apiURL = "https://script.google.com/macros/s/AKfycbzDd2WVaNUF42tnP5US_KvBG3TZF4pIWa9ncwRfbtrXRXhplHqsFRhTkD8BZqk219Y/exec?action=getProduct";
@@ -24,6 +25,8 @@ async function loadProductInfo() {
     document.getElementById("unit-price").textContent = unitPrice;
 
     updateDisplay();
+
+    if (!productLoaded) return;
 
     console.log("Product loaded:", product);
 
@@ -52,7 +55,11 @@ const orderForm = document.getElementById("order-form");
    3. UPDATE PRODUCT DISPLAY
 ================================= */
 
+
 function updateDisplay() {
+
+    // Wait until product information is loaded
+    if (!productLoaded) return;
 
     quantityDisplay.textContent = quantity;
     stockDisplay.textContent = availableStock;
@@ -72,6 +79,7 @@ function updateDisplay() {
 
     decreaseButton.disabled = quantity <= 1;
 }
+
 
 
 /* =================================
@@ -272,4 +280,39 @@ document.getElementById("new-order").addEventListener("click", function () {
 
 });
 
-loadProductInfo();
+
+async function loadProductInfo() {
+
+    const apiURL = "https://script.google.com/macros/s/AKfycbzDd2WVaNUF42tnP5US_KvBG3TZF4pIWa9ncwRfbtrXRXhplHqsFRhTkD8BZqk219Y/exec?action=getProduct";
+
+    try {
+
+        const response = await fetch(apiURL);
+        const product = await response.json();
+
+        if (!product.success || product.status !== "ACTIVE") {
+            throw new Error("Product is unavailable");
+        }
+
+        unitPrice = Number(product.price);
+        availableStock = Number(product.stock);
+
+        document.getElementById("unit-price").textContent = unitPrice;
+
+        // Product information is now ready
+        productLoaded = true;
+
+        updateDisplay();
+
+        console.log("Product loaded:", product);
+
+    } catch (error) {
+
+        console.error("Backend Error:", error);
+
+        document.getElementById("unit-price").textContent = "Unavailable";
+        document.getElementById("stock").textContent = "Unavailable";
+        document.getElementById("stock-status").textContent = "Connection Error";
+
+    }
+}
