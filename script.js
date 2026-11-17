@@ -3,7 +3,7 @@
    1. STORE INFORMATION
 ================================= */
 
-const unitPrice = 0;
+let unitPrice = 0;
 let availableStock = 0;
 let quantity = 1;
 
