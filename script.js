@@ -95,14 +95,38 @@ orderForm.addEventListener("submit", function (event) {
     // Calculate total
     const totalPrice = quantity * unitPrice;
 
-    // Demo confirmation
-    alert(
-        "Order information is valid!\n\n" +
-        "Name: " + customerName + "\n" +
-        "Mobile: " + mobile + "\n" +
-        "Hall: " + hall + "\n" +
-        "Quantity: " + quantity + "\n" +
-        "Total: ৳" + totalPrice
-    );
+    
+// Generate Order ID
+const orderID = generateOrderID();
+
+// Show Order Confirmation
+alert(
+    "🎉 Order Confirmed!\n\n" +
+    "Order ID: " + orderID + "\n\n" +
+    "Customer: " + customerName + "\n" +
+    "Mobile: " + mobile + "\n" +
+    "Hall: " + hall + "\n" +
+    "Quantity: " + quantity + " Pigeon(s)\n" +
+    "Total Price: ৳" + totalPrice + "\n\n" +
+    "Payment Method: Cash on Delivery\n\n" +
+    "Thank you for shopping with Shop Update!"
+);
+
+
+
+function generateOrderID() {
+
+    const now = new Date();
+
+    const date =
+        String(now.getFullYear()).slice(-2) +
+        String(now.getMonth() + 1).padStart(2, "0") +
+        String(now.getDate()).padStart(2, "0");
+
+    const randomNumber = Math.floor(1000 + Math.random() * 9000);
+
+    return "SU-" + date + "-" + randomNumber;
+}
+
 
 });
