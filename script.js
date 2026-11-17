@@ -1,7 +1,7 @@
 
 // Store Information
 const unitPrice = 250;
-let availableStock = 5;
+let availableStock = 0;
 let quantity = 1;
 
 // HTML Elements
